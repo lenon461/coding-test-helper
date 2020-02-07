@@ -11,7 +11,7 @@ npm install coding-test-helper
 
 # Usage Example
 
-1. write your coustom function  
+1. write your custom function  
 2. make a test data without break a format ( [[arg1, arg2, ...args]], answer])
 3. run the code!
 
