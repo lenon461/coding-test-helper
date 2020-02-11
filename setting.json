@@ -1,0 +1,20 @@
+{
+    "editor.formatOnSave": false,
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true
+  },
+  "prettier.arrowParens": "always",
+  "prettier.printWidth": 200,
+  "prettier.tabWidth": 4,
+  "prettier.trailingComma": "all",
+  "prettier.singleQuote": false,
+  "prettier.semi": true,
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.enableSmartCommit": true
+  }
