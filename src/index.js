@@ -1,21 +1,28 @@
 const { log, error, time, timeEnd } = console;
-const runTest = (f, testCase) => {
+const runTest = (f, testCase, loggingOptions) => {
+    const logging = loggingOptions === undefined ? true : loggingOptions;
+    const madeResultString = (ele) => {
+        const results = [];
+        results.push(`${ele.index}: ${ele.result ? "O" : "X"}`);
+        if (!ele.result) results.push(`[Yours : ${ele.expect}] !== [${ele.answer} : Answer]`);
+        return results.join(" ");
+    };
     const result = testCase
         .map((ele, index) => {
-            const { args, answer } = ele;
+            const { args, answer, logging } = ele;
             const expect = f(...args);
-            return { index, result: answer === expect, answer, expect, args };
+            return { index, result: answer === expect, answer, expect, args, logging };
         })
         .map((ele) => {
-            if (ele.answer === ele.expect) delete ele.answer, delete ele.expect, delete ele.args;
-            log(ele);
+            if (logging || ele.logging) log(madeResultString(ele));
         });
 };
 const testCase = (data) => {
     return data.map((ele, index, arr) => {
         const args = ele[0];
         const answer = ele[1];
-        return { args, answer };
+        const logging = ele[2] || 0;
+        return { args, answer, logging };
     });
 };
 exports.runTest = runTest;

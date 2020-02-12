@@ -9,7 +9,13 @@ Install with:
 npm install coding-test-helper
 ```
 
-# Usage Example
+# Update
+** 1.0.3 Update   
+* You can add log option in test data
+* result output is modified to string
+
+
+# Usage Example 1
 
 1. write your custom function  
 2. make a test data without break a format ( [[arg1, arg2, ...args]], answer])
@@ -18,12 +24,25 @@ npm install coding-test-helper
 ```
 const { runTest, testCase } = require("coding-test-helper");
 
+/**
+ * data
+ * @typedef {Array} Testdata
+ * @0 {Array} args - inputs
+ * @1 {Any} answer - answer
+ * @2 {boolean} loggin option - logging true or false
+ */
 const data = [
     [[1, 2], 3],
     [[3, 8], 11],
     [[4, 11], 15],
 ];
 
+/**
+ * runTest
+ * @param  {Function} fucntion - f
+ * @param  {Object} data - data
+ * @param  {boolean} logging option - logging global true or false
+ */
 const sum = (a, b) => {
     return a + b;
 };
@@ -34,7 +53,29 @@ runTest(sum, testCase(data));
 
 * Result
 ```
-{ index: 0, result: true }
-{ index: 1, result: true }
-{ index: 2, result: true }
+0: O
+1: O
+2: X [Yours : 15] !== [16 : Answer]
+```
+# Usage Example 2
+```
+const { runTest, testCase } = require("coding-test-helper");
+
+const data = [
+    [[1, 2], 3],
+    [[3, 8], 11, true],
+    [[4, 11], 15],
+];
+
+const sum = (a, b) => {
+    return a + b;
+};
+
+runTest(sum, testCase(data), false);
+
+```
+
+* Result
+```
+1: O
 ```
