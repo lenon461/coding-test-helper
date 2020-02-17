@@ -1,6 +1,6 @@
 {
   "name": "coding-test-helper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "helper library for your coding-test",
   "main": "src/index.js",
   "scripts": {
