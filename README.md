@@ -12,7 +12,8 @@ npm install coding-test-helper
 # Update
 ** 1.0.3 Update   
 * You can add log option in test data
-* result output is modified to string
+* result output is modified to string  
+
 ** 1.0.5 Update   
 * estimating time  
 
