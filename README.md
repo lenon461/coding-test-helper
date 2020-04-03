@@ -17,6 +17,8 @@ npm install coding-test-helper
 ** 1.0.5 Update   
 * estimating time  
 
+** 1.0.6 Update   
+* Memory Usage log  
 
 # Usage Example 1
 

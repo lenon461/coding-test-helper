@@ -16,7 +16,13 @@ const runTest = (f, testCase, loggingOptions) => {
     };
     const madeAverageResultOutput = () => {
         const average = (AverageResult.correct / AverageResult.count) * 100;
-        return log(`Test Result: [${average}%] --- ${AverageResult.correct}/${AverageResult.count}`);
+        const used = process.memoryUsage();
+        for (let key in used) {
+            log(`Memory: ${key} ${Math.round((used[key] / 1024 / 1024) * 100) / 100} MB`);
+        }
+        return log(
+            `Test Result: [${average}%] --- ${AverageResult.correct}/${AverageResult.count}`,
+        );
     };
     const result = testCase
         .map((ele, index) => {
